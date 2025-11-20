@@ -115,7 +115,7 @@ class NotificationManager {
 
         // Auto remove after duration
         setTimeout(() => {
-            notification.style.animation = 'slideOutRight 0.3s ease-out';
+            notification.style.animation = 'slideOutLeft 0.3s ease-out';
             setTimeout(() => {
                 notification.remove();
                 this.count--;
@@ -179,11 +179,11 @@ document.addEventListener('DOMContentLoaded', () => {
             mainDashboard.classList.remove('hidden');
             
             // Show welcome notification
-            notificationManager.show('Welcome to Aktro Dashboard! 🎮', 'success');
+            notificationManager.show('مرحباً بك في لوحة تحكم Aktro! 🎮', 'success');
             
             // Show a quick tip after 2 seconds
             setTimeout(() => {
-                notificationManager.show('Tip: All buttons sync with the bot features', 'info');
+                notificationManager.show('نصيحة: جميع الأزرار متزامنة مع ميزات البوت', 'info');
             }, 2000);
         }, 500);
     });
@@ -228,25 +228,25 @@ function handleAction(action) {
     const actionHandlers = {
         credits: () => {
             const content = `
-                <h2 style="color: var(--purple-4); margin-bottom: 1rem;">💰 Credit Adjustment</h2>
-                <p style="margin-bottom: 1.5rem;">Add or deduct credits from streamers</p>
+                <h2 style="color: var(--purple-4); margin-bottom: 1rem;">💰 تعديل الرصيد</h2>
+                <p style="margin-bottom: 1.5rem;">إضافة أو خصم الرصيد من الستريمرز</p>
                 
                 <div style="margin-bottom: 1rem;">
-                    <label style="display: block; margin-bottom: 0.5rem;">Streamer Name:</label>
-                    <input type="text" id="streamerName" placeholder="Enter streamer name" 
+                    <label style="display: block; margin-bottom: 0.5rem;">اسم الستريمر:</label>
+                    <input type="text" id="streamerName" placeholder="أدخل اسم الستريمر" 
                            style="width: 100%; padding: 0.8rem; border-radius: 10px; border: 2px solid var(--purple-2); 
                                   background: rgba(26, 11, 46, 0.6); color: white;">
                 </div>
                 
                 <div style="margin-bottom: 1rem;">
-                    <label style="display: block; margin-bottom: 0.5rem;">Credits Amount:</label>
-                    <input type="number" id="creditAmount" placeholder="Enter amount (use - for deduction)" 
+                    <label style="display: block; margin-bottom: 0.5rem;">كمية الرصيد:</label>
+                    <input type="number" id="creditAmount" placeholder="أدخل الكمية (استخدم - للخصم)" 
                            style="width: 100%; padding: 0.8rem; border-radius: 10px; border: 2px solid var(--purple-2); 
                                   background: rgba(26, 11, 46, 0.6); color: white;">
                 </div>
                 
                 <button onclick="submitCredits()" class="control-button" style="margin-top: 1rem;">
-                    Submit
+                    إرسال
                 </button>
             `;
             modalManager.open(content);
@@ -254,32 +254,32 @@ function handleAction(action) {
 
         schedule: () => {
             const content = `
-                <h2 style="color: var(--purple-4); margin-bottom: 1rem;">📅 Schedule Management</h2>
-                <p style="margin-bottom: 1.5rem;">Set or update streaming schedules</p>
+                <h2 style="color: var(--purple-4); margin-bottom: 1rem;">📅 إدارة الجداول</h2>
+                <p style="margin-bottom: 1.5rem;">تعيين أو تحديث جداول البث</p>
                 
                 <div style="margin-bottom: 1rem;">
-                    <label style="display: block; margin-bottom: 0.5rem;">Streamer Name:</label>
-                    <input type="text" id="scheduleStreamer" placeholder="Enter streamer name" 
+                    <label style="display: block; margin-bottom: 0.5rem;">اسم الستريمر:</label>
+                    <input type="text" id="scheduleStreamer" placeholder="أدخل اسم الستريمر" 
                            style="width: 100%; padding: 0.8rem; border-radius: 10px; border: 2px solid var(--purple-2); 
                                   background: rgba(26, 11, 46, 0.6); color: white;">
                 </div>
                 
                 <div style="margin-bottom: 1rem;">
-                    <label style="display: block; margin-bottom: 0.5rem;">Schedule Date & Time:</label>
+                    <label style="display: block; margin-bottom: 0.5rem;">تاريخ ووقت الجدول:</label>
                     <input type="datetime-local" id="scheduleTime" 
                            style="width: 100%; padding: 0.8rem; border-radius: 10px; border: 2px solid var(--purple-2); 
                                   background: rgba(26, 11, 46, 0.6); color: white;">
                 </div>
                 
                 <div style="margin-bottom: 1rem;">
-                    <label style="display: block; margin-bottom: 0.5rem;">Duration (hours):</label>
-                    <input type="number" id="scheduleDuration" placeholder="Enter duration" 
+                    <label style="display: block; margin-bottom: 0.5rem;">المدة (بالساعات):</label>
+                    <input type="number" id="scheduleDuration" placeholder="أدخل المدة" 
                            style="width: 100%; padding: 0.8rem; border-radius: 10px; border: 2px solid var(--purple-2); 
                                   background: rgba(26, 11, 46, 0.6); color: white;">
                 </div>
                 
                 <button onclick="submitSchedule()" class="control-button" style="margin-top: 1rem;">
-                    Set Schedule
+                    تعيين الجدول
                 </button>
             `;
             modalManager.open(content);
@@ -287,41 +287,41 @@ function handleAction(action) {
 
         alerts: () => {
             const content = `
-                <h2 style="color: var(--purple-4); margin-bottom: 1rem;">🔔 Send Alerts</h2>
-                <p style="margin-bottom: 1.5rem;">Send notifications to streamers</p>
+                <h2 style="color: var(--purple-4); margin-bottom: 1rem;">🔔 إرسال تنبيهات</h2>
+                <p style="margin-bottom: 1.5rem;">إرسال إشعارات للستريمرز</p>
                 
                 <div style="margin-bottom: 1rem;">
-                    <label style="display: block; margin-bottom: 0.5rem;">Alert Type:</label>
+                    <label style="display: block; margin-bottom: 0.5rem;">نوع التنبيه:</label>
                     <select id="alertType" 
                             style="width: 100%; padding: 0.8rem; border-radius: 10px; border: 2px solid var(--purple-2); 
                                    background: rgba(26, 11, 46, 0.6); color: white;">
-                        <option>General Announcement</option>
-                        <option>Stream Reminder</option>
-                        <option>Performance Update</option>
-                        <option>Credit Update</option>
+                        <option>إعلان عام</option>
+                        <option>تذكير بالبث</option>
+                        <option>تحديث الأداء</option>
+                        <option>تحديث الرصيد</option>
                     </select>
                 </div>
                 
                 <div style="margin-bottom: 1rem;">
-                    <label style="display: block; margin-bottom: 0.5rem;">Recipients:</label>
+                    <label style="display: block; margin-bottom: 0.5rem;">المستلمون:</label>
                     <select id="alertRecipients" 
                             style="width: 100%; padding: 0.8rem; border-radius: 10px; border: 2px solid var(--purple-2); 
                                    background: rgba(26, 11, 46, 0.6); color: white;">
-                        <option>All Streamers</option>
-                        <option>Active Streamers</option>
-                        <option>Specific Streamer</option>
+                        <option>كل الستريمرز</option>
+                        <option>الستريمرز النشطون</option>
+                        <option>ستريمر محدد</option>
                     </select>
                 </div>
                 
                 <div style="margin-bottom: 1rem;">
-                    <label style="display: block; margin-bottom: 0.5rem;">Message:</label>
-                    <textarea id="alertMessage" rows="4" placeholder="Enter your alert message" 
+                    <label style="display: block; margin-bottom: 0.5rem;">الرسالة:</label>
+                    <textarea id="alertMessage" rows="4" placeholder="أدخل رسالة التنبيه" 
                               style="width: 100%; padding: 0.8rem; border-radius: 10px; border: 2px solid var(--purple-2); 
                                      background: rgba(26, 11, 46, 0.6); color: white; resize: vertical;"></textarea>
                 </div>
                 
                 <button onclick="submitAlert()" class="control-button" style="margin-top: 1rem;">
-                    Send Alert
+                    إرسال التنبيه
                 </button>
             `;
             modalManager.open(content);
@@ -329,29 +329,29 @@ function handleAction(action) {
 
         performance: () => {
             const content = `
-                <h2 style="color: var(--purple-4); margin-bottom: 1rem;">📊 Performance Tracking</h2>
-                <p style="margin-bottom: 1.5rem;">View streamer performance metrics</p>
+                <h2 style="color: var(--purple-4); margin-bottom: 1rem;">📊 متابعة الأداء</h2>
+                <p style="margin-bottom: 1.5rem;">عرض مقاييس أداء الستريمرز</p>
                 
                 <div style="background: rgba(138, 43, 226, 0.2); padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
-                    <h3 style="margin-bottom: 0.5rem;">Top Performers This Week</h3>
+                    <h3 style="margin-bottom: 0.5rem;">أفضل أداء هذا الأسبوع</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(168, 85, 247, 0.3);">
-                            🥇 Streamer1 - 45 hours - 12,500 viewers
+                            🥇 ستريمر1 - 45 ساعة - 12,500 مشاهد
                         </li>
                         <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(168, 85, 247, 0.3);">
-                            🥈 Streamer2 - 38 hours - 9,800 viewers
+                            🥈 ستريمر2 - 38 ساعة - 9,800 مشاهد
                         </li>
                         <li style="padding: 0.5rem 0;">
-                            🥉 Streamer3 - 32 hours - 8,200 viewers
+                            🥉 ستريمر3 - 32 ساعة - 8,200 مشاهد
                         </li>
                     </ul>
                 </div>
                 
                 <div style="background: rgba(138, 43, 226, 0.2); padding: 1rem; border-radius: 10px;">
-                    <h3 style="margin-bottom: 0.5rem;">Overall Statistics</h3>
-                    <p>Total Stream Hours: 432</p>
-                    <p>Average Viewers: 8,500</p>
-                    <p>Peak Concurrent Streams: 12</p>
+                    <h3 style="margin-bottom: 0.5rem;">الإحصائيات العامة</h3>
+                    <p>إجمالي ساعات البث: 432</p>
+                    <p>متوسط المشاهدين: 8,500</p>
+                    <p>ذروة البث المتزامن: 12</p>
                 </div>
             `;
             modalManager.open(content);
@@ -359,27 +359,27 @@ function handleAction(action) {
 
         bot: () => {
             const content = `
-                <h2 style="color: var(--purple-4); margin-bottom: 1rem;">🤖 Bot Integration</h2>
-                <p style="margin-bottom: 1.5rem;">Configure bot settings and sync features</p>
+                <h2 style="color: var(--purple-4); margin-bottom: 1rem;">🤖 تكامل البوت</h2>
+                <p style="margin-bottom: 1.5rem;">ضبط إعدادات البوت ومزامنة الميزات</p>
                 
                 <div style="background: rgba(138, 43, 226, 0.2); padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
-                    <h3 style="margin-bottom: 0.5rem;">Bot Status</h3>
-                    <p style="color: #10b981;">✅ Connected and Online</p>
-                    <p>Last Sync: Just now</p>
+                    <h3 style="margin-bottom: 0.5rem;">حالة البوت</h3>
+                    <p style="color: #10b981;">✅ متصل ويعمل</p>
+                    <p>آخر مزامنة: الآن</p>
                 </div>
                 
                 <div style="background: rgba(138, 43, 226, 0.2); padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
-                    <h3 style="margin-bottom: 0.5rem;">Synced Features</h3>
+                    <h3 style="margin-bottom: 0.5rem;">الميزات المتزامنة</h3>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="padding: 0.5rem 0;">✅ Credit Management</li>
-                        <li style="padding: 0.5rem 0;">✅ Schedule Management</li>
-                        <li style="padding: 0.5rem 0;">✅ Alert System</li>
-                        <li style="padding: 0.5rem 0;">✅ Performance Tracking</li>
+                        <li style="padding: 0.5rem 0;">✅ إدارة الرصيد</li>
+                        <li style="padding: 0.5rem 0;">✅ إدارة الجداول</li>
+                        <li style="padding: 0.5rem 0;">✅ نظام التنبيهات</li>
+                        <li style="padding: 0.5rem 0;">✅ متابعة الأداء</li>
                     </ul>
                 </div>
                 
                 <button onclick="syncBot()" class="control-button">
-                    Force Sync Now
+                    مزامنة قسرية الآن
                 </button>
             `;
             modalManager.open(content);
@@ -387,34 +387,34 @@ function handleAction(action) {
 
         settings: () => {
             const content = `
-                <h2 style="color: var(--purple-4); margin-bottom: 1rem;">⚙️ Settings</h2>
-                <p style="margin-bottom: 1.5rem;">Configure your dashboard preferences</p>
+                <h2 style="color: var(--purple-4); margin-bottom: 1rem;">⚙️ الإعدادات</h2>
+                <p style="margin-bottom: 1.5rem;">ضبط تفضيلات لوحة التحكم</p>
                 
                 <div style="margin-bottom: 1rem;">
                     <label style="display: flex; align-items: center; cursor: pointer;">
                         <input type="checkbox" id="soundToggle" ${soundManager.enabled ? 'checked' : ''} 
                                onchange="toggleSound()" 
-                               style="margin-right: 0.5rem; width: 20px; height: 20px;">
-                        <span>Enable Sound Effects</span>
+                               style="margin-left: 0.5rem; width: 20px; height: 20px;">
+                        <span>تفعيل المؤثرات الصوتية</span>
                     </label>
                 </div>
                 
                 <div style="margin-bottom: 1rem;">
                     <label style="display: flex; align-items: center; cursor: pointer;">
                         <input type="checkbox" id="notificationToggle" checked 
-                               style="margin-right: 0.5rem; width: 20px; height: 20px;">
-                        <span>Enable Notifications</span>
+                               style="margin-left: 0.5rem; width: 20px; height: 20px;">
+                        <span>تفعيل الإشعارات</span>
                     </label>
                 </div>
                 
                 <div style="margin-bottom: 1rem;">
-                    <label style="display: block; margin-bottom: 0.5rem;">Theme Intensity:</label>
+                    <label style="display: block; margin-bottom: 0.5rem;">كثافة المظهر:</label>
                     <input type="range" min="1" max="10" value="7" 
                            style="width: 100%;">
                 </div>
                 
                 <button onclick="saveSettings()" class="control-button" style="margin-top: 1rem;">
-                    Save Settings
+                    حفظ الإعدادات
                 </button>
             `;
             modalManager.open(content);
@@ -424,7 +424,7 @@ function handleAction(action) {
     if (actionHandlers[action]) {
         actionHandlers[action]();
     } else {
-        notificationManager.show('Feature coming soon!', 'info');
+        notificationManager.show('الميزة ستتوفر قريباً!', 'info');
     }
 }
 
@@ -434,7 +434,7 @@ function submitCredits() {
     const amount = document.getElementById('creditAmount').value;
 
     if (!name || !amount) {
-        notificationManager.show('Please fill all fields', 'error');
+        notificationManager.show('الرجاء ملء جميع الحقول', 'error');
         return;
     }
 
@@ -454,20 +454,20 @@ function submitCredits() {
     .then(response => {
         if (!response.ok) {
             // If the server response is not OK, throw an error
-            throw new Error(`Network response was not ok: ${response.statusText}`);
+            throw new Error(`استجابة الشبكة غير صالحة: ${response.statusText}`);
         }
         return response.json();
     })
     .then(data => {
         // This runs if the request was successful
         soundManager.playSuccess();
-        notificationManager.show(`Successfully updated credits for ${name}!`, 'success');
+        notificationManager.show(`تم تحديث الرصيد لـ ${name} بنجاح!`, 'success');
         modalManager.close();
     })
     .catch(error => {
         // This runs if there was an error with the fetch operation
-        notificationManager.show('API Error. Check bot logs on Railway.', 'error');
-        console.error('There has been a problem with your fetch operation:', error);
+        notificationManager.show('خطأ في الاتصال بالبوت. تحقق من السجلات على Railway.', 'error');
+        console.error('حدثت مشكلة في عملية الاتصال:', error);
     });
 }
 
@@ -478,10 +478,10 @@ function submitSchedule() {
 
     if (streamer && time && duration) {
         soundManager.playSuccess();
-        notificationManager.show(`Schedule set for ${streamer}!`, 'success');
+        notificationManager.show(`تم تعيين الجدول لـ ${streamer}!`, 'success');
         modalManager.close();
     } else {
-        notificationManager.show('Please fill all fields', 'error');
+        notificationManager.show('الرجاء ملء جميع الحقول', 'error');
     }
 }
 
@@ -492,41 +492,41 @@ function submitAlert() {
 
     if (message) {
         soundManager.playSuccess();
-        notificationManager.show(`Alert sent to ${recipients}!`, 'success');
+        notificationManager.show(`تم إرسال التنبيه إلى ${recipients}!`, 'success');
         modalManager.close();
     } else {
-        notificationManager.show('Please enter a message', 'error');
+        notificationManager.show('الرجاء إدخال رسالة', 'error');
     }
 }
 
 function syncBot() {
     soundManager.playClick();
-    notificationManager.show('Syncing with bot...', 'info');
+    notificationManager.show('جارٍ المزامنة مع البوت...', 'info');
     
     setTimeout(() => {
         soundManager.playSuccess();
-        notificationManager.show('Bot sync completed successfully!', 'success');
+        notificationManager.show('اكتملت مزامنة البوت بنجاح!', 'success');
     }, 2000);
 }
 
 function toggleSound() {
     const enabled = soundManager.toggle();
     soundManager.playClick();
-    notificationManager.show(`Sound effects ${enabled ? 'enabled' : 'disabled'}`, 'info');
+    notificationManager.show(`تم ${enabled ? 'تفعيل' : 'تعطيل'} المؤثرات الصوتية`, 'info');
 }
 
 function saveSettings() {
     soundManager.playSuccess();
-    notificationManager.show('Settings saved successfully!', 'success');
+    notificationManager.show('تم حفظ الإعدادات بنجاح!', 'success');
     modalManager.close();
 }
 
 // Periodic notifications (simulate real-time updates)
 setInterval(() => {
     const messages = [
-        { text: 'Streamer went live!', type: 'info' },
-        { text: 'New performance milestone reached!', type: 'success' },
-        { text: 'Schedule reminder: Stream starting in 30 minutes', type: 'info' }
+        { text: 'أحد الستريمرز بدأ بث مباشر!', type: 'info' },
+        { text: 'تم تحقيق إنجاز جديد في الأداء!', type: 'success' },
+        { text: 'تذكير بالجدول: البث سيبدأ خلال 30 دقيقة', type: 'info' }
     ];
     
     // Randomly show notifications (10% chance every 30 seconds)
