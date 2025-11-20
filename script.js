@@ -433,13 +433,42 @@ function submitCredits() {
     const name = document.getElementById('streamerName').value;
     const amount = document.getElementById('creditAmount').value;
 
-    if (name && amount) {
-        soundManager.playSuccess();
-        notificationManager.show(`Credits ${amount > 0 ? 'added to' : 'deducted from'} ${name}!`, 'success');
-        modalManager.close();
-    } else {
+    if (!name || !amount) {
         notificationManager.show('Please fill all fields', 'error');
+        return;
     }
+
+    // 🔥 This is the connection to your bot on Railway!
+    fetch("https://bot-and-dashbord-aktro-production.up.railway.app/credit/update", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            // Add any authorization header if your bot requires it
+            // "Authorization": "Bearer YOUR_SECRET_TOKEN"
+        },
+        body: JSON.stringify({
+            username: name,
+            amount: Number(amount)
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            // If the server response is not OK, throw an error
+            throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // This runs if the request was successful
+        soundManager.playSuccess();
+        notificationManager.show(`Successfully updated credits for ${name}!`, 'success');
+        modalManager.close();
+    })
+    .catch(error => {
+        // This runs if there was an error with the fetch operation
+        notificationManager.show('API Error. Check bot logs on Railway.', 'error');
+        console.error('There has been a problem with your fetch operation:', error);
+    });
 }
 
 function submitSchedule() {
