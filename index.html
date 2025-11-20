@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktro Dashboard - Streamer Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="welcome-screen">
+        <div class="welcome-content">
+            <h1 class="welcome-title">🌟 Welcome to Aktro Dashboard 🌟</h1>
+            <p class="welcome-subtitle">Your Ultimate Streaming Management Platform</p>
+            <button id="enterButton" class="enter-button">Enter Dashboard</button>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="mainDashboard" class="main-dashboard hidden">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1 class="logo">🕹️ Aktro Dashboard</h1>
+                <div class="user-info">
+                    <span class="user-name">Admin</span>
+                    <div class="notification-badge" id="notificationBadge">0</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Notification Container -->
+        <div id="notificationContainer" class="notification-container"></div>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <!-- Welcome Message -->
+            <section class="welcome-banner">
+                <h2>Welcome Back! 👋</h2>
+                <p>Manage your streamers, schedules, and alerts all in one place</p>
+            </section>
+
+            <!-- Dashboard Controls -->
+            <section class="dashboard-controls">
+                <div class="control-grid">
+                    <!-- Credit Adjustment -->
+                    <div class="control-card">
+                        <div class="card-icon">💰</div>
+                        <h3>Credit Adjustment</h3>
+                        <p>Add or deduct streamer credits</p>
+                        <button class="control-button" data-action="credits">
+                            Manage Credits
+                        </button>
+                    </div>
+
+                    <!-- Schedule Management -->
+                    <div class="control-card">
+                        <div class="card-icon">📅</div>
+                        <h3>Schedule Management</h3>
+                        <p>Set and manage streaming schedules</p>
+                        <button class="control-button" data-action="schedule">
+                            Manage Schedule
+                        </button>
+                    </div>
+
+                    <!-- Send Alerts -->
+                    <div class="control-card">
+                        <div class="card-icon">🔔</div>
+                        <h3>Send Alerts</h3>
+                        <p>Send notifications to streamers</p>
+                        <button class="control-button" data-action="alerts">
+                            Send Alert
+                        </button>
+                    </div>
+
+                    <!-- Performance Tracking -->
+                    <div class="control-card">
+                        <div class="card-icon">📊</div>
+                        <h3>Performance Tracking</h3>
+                        <p>Monitor streamer performance</p>
+                        <button class="control-button" data-action="performance">
+                            View Stats
+                        </button>
+                    </div>
+
+                    <!-- Bot Integration -->
+                    <div class="control-card">
+                        <div class="card-icon">🤖</div>
+                        <h3>Bot Integration</h3>
+                        <p>Sync with bot features</p>
+                        <button class="control-button" data-action="bot">
+                            Bot Settings
+                        </button>
+                    </div>
+
+                    <!-- Settings -->
+                    <div class="control-card">
+                        <div class="card-icon">⚙️</div>
+                        <h3>Settings</h3>
+                        <p>Configure dashboard preferences</p>
+                        <button class="control-button" data-action="settings">
+                            Open Settings
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Stats -->
+            <section class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <h4>Active Streamers</h4>
+                        <p class="stat-value">24</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎮</div>
+                    <div class="stat-info">
+                        <h4>Live Now</h4>
+                        <p class="stat-value">8</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-info">
+                        <h4>Total Credits</h4>
+                        <p class="stat-value">15,420</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📢</div>
+                    <div class="stat-info">
+                        <h4>Pending Alerts</h4>
+                        <p class="stat-value">3</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>© 2025 Aktro Dashboard - All Rights Reserved</p>
+            <div class="footer-links">
+                <a href="#help">Help</a>
+                <a href="#docs">Documentation</a>
+                <a href="#support">Support</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal for Actions -->
+    <div id="actionModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
